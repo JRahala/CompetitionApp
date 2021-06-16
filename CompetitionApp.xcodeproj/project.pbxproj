@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		32B42624267A9EE200BE63D4 /* CompetitionAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */; };
-		32B42626267A9EE200BE63D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42625267A9EE200BE63D4 /* ContentView.swift */; };
 		32B42628267A9EE400BE63D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B42627267A9EE400BE63D4 /* Assets.xcassets */; };
 		32B4262B267A9EE400BE63D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B4262A267A9EE400BE63D4 /* Preview Assets.xcassets */; };
 		32B42636267A9EE400BE63D4 /* CompetitionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42635267A9EE400BE63D4 /* CompetitionAppTests.swift */; };
 		32B42641267A9EE400BE63D4 /* CompetitionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42640267A9EE400BE63D4 /* CompetitionAppUITests.swift */; };
+		32B42660267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */; };
+		32B42661267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */; };
+		32B42662267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */; };
+		32B42667267AA71400BE63D4 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42666267AA71400BE63D4 /* PersistenceController.swift */; };
+		32B42668267AA71400BE63D4 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42666267AA71400BE63D4 /* PersistenceController.swift */; };
+		32B42669267AA71400BE63D4 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42666267AA71400BE63D4 /* PersistenceController.swift */; };
+		32B42674267AACC800BE63D4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42673267AACC800BE63D4 /* WelcomeView.swift */; };
+		32B42675267AACC800BE63D4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42673267AACC800BE63D4 /* WelcomeView.swift */; };
+		32B42676267AACC800BE63D4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42673267AACC800BE63D4 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +43,6 @@
 /* Begin PBXFileReference section */
 		32B42620267A9EE200BE63D4 /* CompetitionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompetitionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionAppApp.swift; sourceTree = "<group>"; };
-		32B42625267A9EE200BE63D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		32B42627267A9EE400BE63D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32B4262A267A9EE400BE63D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		32B4262C267A9EE400BE63D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +52,9 @@
 		32B4263C267A9EE400BE63D4 /* CompetitionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompetitionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B42640267A9EE400BE63D4 /* CompetitionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionAppUITests.swift; sourceTree = "<group>"; };
 		32B42642267A9EE400BE63D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32B4265F267AA6C700BE63D4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		32B42666267AA71400BE63D4 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		32B42673267AACC800BE63D4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +105,8 @@
 		32B42622267A9EE200BE63D4 /* CompetitionApp */ = {
 			isa = PBXGroup;
 			children = (
-				32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */,
-				32B42625267A9EE200BE63D4 /* ContentView.swift */,
+				32B42652267AA54100BE63D4 /* Data */,
+				32B42651267AA52000BE63D4 /* Views */,
 				32B42627267A9EE400BE63D4 /* Assets.xcassets */,
 				32B4262C267A9EE400BE63D4 /* Info.plist */,
 				32B42629267A9EE400BE63D4 /* Preview Content */,
@@ -128,6 +138,24 @@
 				32B42642267A9EE400BE63D4 /* Info.plist */,
 			);
 			path = CompetitionAppUITests;
+			sourceTree = "<group>";
+		};
+		32B42651267AA52000BE63D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */,
+				32B42673267AACC800BE63D4 /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32B42652267AA54100BE63D4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */,
+				32B42666267AA71400BE63D4 /* PersistenceController.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32B42626267A9EE200BE63D4 /* ContentView.swift in Sources */,
 				32B42624267A9EE200BE63D4 /* CompetitionAppApp.swift in Sources */,
+				32B42660267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
+				32B42667267AA71400BE63D4 /* PersistenceController.swift in Sources */,
+				32B42674267AACC800BE63D4 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B42668267AA71400BE63D4 /* PersistenceController.swift in Sources */,
 				32B42636267A9EE400BE63D4 /* CompetitionAppTests.swift in Sources */,
+				32B42661267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
+				32B42675267AACC800BE63D4 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B42669267AA71400BE63D4 /* PersistenceController.swift in Sources */,
 				32B42641267A9EE400BE63D4 /* CompetitionAppUITests.swift in Sources */,
+				32B42662267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
+				32B42676267AACC800BE63D4 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +610,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32B4265F267AA6C700BE63D4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 32B4265F267AA6C700BE63D4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32B42618267A9EE200BE63D4 /* Project object */;
 }
