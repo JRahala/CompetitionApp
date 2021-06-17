@@ -11,7 +11,7 @@ import SwiftUI
 struct CompetitionAppApp: App {
     
     // store the persistence controller
-    let persistenceController = PersistenceControlle.preview
+    let persistenceController = PersistenceController.preview
     // state of scene
     @Environment(\.scenePhase) var scenePhase
     
@@ -20,7 +20,7 @@ struct CompetitionAppApp: App {
         WindowGroup {
             WelcomeView()
                 // reference the controller via environment
-                .environment(\.managedObjectContext, persistenceController.constainer.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         // save changes whever the scene changes
         .onChange(of: scenePhase){ _ in

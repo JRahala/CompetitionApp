@@ -9,7 +9,20 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack{
+            NavigationLink(
+                destination: RegisterView(),
+                label: {
+                    Text("Register")
+                })
+            NavigationLink(
+                destination: LoginView(),
+                label: {
+                    Text("Login")
+                })
+            }
+        }
     }
 }
 
