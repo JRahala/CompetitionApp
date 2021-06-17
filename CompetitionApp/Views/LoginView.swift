@@ -11,7 +11,7 @@ struct LoginView: View {
     var body: some View {
         Text("Login View")
             NavigationLink(
-                destination: MenuView(),
+                destination: LoginView(), //MenuView(),
                 label:{
                     Text("Menu View")
             })

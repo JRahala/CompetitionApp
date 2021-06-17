@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @State var currentUser: Person
+    
     var body: some View {
+        
+        Text(currentUser.username!)
+        Text(currentUser.password!)
+    
         Text("Menu View")
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("")
         .navigationBarHidden(true)
+    
     }
     
-}
-
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
-    }
 }

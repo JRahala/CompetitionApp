@@ -19,8 +19,8 @@ struct PersistenceController{
         let controller = PersistenceController(inMemory: true)
         for i in 0..<10{
             let person = Person(context: controller.container.viewContext)
-            let username = "username #\(i)"
-            let password = "password #\(i)"
+            person.username = "username #\(i)"
+            person.password = "password #\(i)"
         }
         return controller
     }()
