@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329620FF267B681F0026C7C4 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329620FE267B681F0026C7C4 /* PersonController.swift */; };
+		32962100267B681F0026C7C4 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329620FE267B681F0026C7C4 /* PersonController.swift */; };
+		32962101267B681F0026C7C4 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329620FE267B681F0026C7C4 /* PersonController.swift */; };
+		32962106267B69BE0026C7C4 /* PersonControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32962105267B69BE0026C7C4 /* PersonControllerTests.swift */; };
 		32B42624267A9EE200BE63D4 /* CompetitionAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */; };
 		32B42628267A9EE400BE63D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B42627267A9EE400BE63D4 /* Assets.xcassets */; };
 		32B4262B267A9EE400BE63D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B4262A267A9EE400BE63D4 /* Preview Assets.xcassets */; };
@@ -50,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		329620FE267B681F0026C7C4 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
+		32962105267B69BE0026C7C4 /* PersonControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonControllerTests.swift; sourceTree = "<group>"; };
 		32B42620267A9EE200BE63D4 /* CompetitionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompetitionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B42623267A9EE200BE63D4 /* CompetitionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionAppApp.swift; sourceTree = "<group>"; };
 		32B42627267A9EE400BE63D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			children = (
 				32B42635267A9EE400BE63D4 /* CompetitionAppTests.swift */,
 				32B42637267A9EE400BE63D4 /* Info.plist */,
+				32962105267B69BE0026C7C4 /* PersonControllerTests.swift */,
 			);
 			path = CompetitionAppTests;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 			children = (
 				32B4265E267AA6C700BE63D4 /* Model.xcdatamodeld */,
 				32B42666267AA71400BE63D4 /* PersistenceController.swift */,
+				329620FE267B681F0026C7C4 /* PersonController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 				32B42682267AB31A00BE63D4 /* LoginView.swift in Sources */,
 				32B42624267A9EE200BE63D4 /* CompetitionAppApp.swift in Sources */,
 				32B4267B267AB30F00BE63D4 /* RegisterView.swift in Sources */,
+				329620FF267B681F0026C7C4 /* PersonController.swift in Sources */,
 				32B42660267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
 				32B42667267AA71400BE63D4 /* PersistenceController.swift in Sources */,
 				32B42674267AACC800BE63D4 /* WelcomeView.swift in Sources */,
@@ -319,7 +328,9 @@
 				32B4268A267AB39800BE63D4 /* MenuView.swift in Sources */,
 				32B42683267AB31A00BE63D4 /* LoginView.swift in Sources */,
 				32B42668267AA71400BE63D4 /* PersistenceController.swift in Sources */,
+				32962106267B69BE0026C7C4 /* PersonControllerTests.swift in Sources */,
 				32B4267C267AB30F00BE63D4 /* RegisterView.swift in Sources */,
+				32962100267B681F0026C7C4 /* PersonController.swift in Sources */,
 				32B42636267A9EE400BE63D4 /* CompetitionAppTests.swift in Sources */,
 				32B42661267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
 				32B42675267AACC800BE63D4 /* WelcomeView.swift in Sources */,
@@ -334,6 +345,7 @@
 				32B42684267AB31A00BE63D4 /* LoginView.swift in Sources */,
 				32B42669267AA71400BE63D4 /* PersistenceController.swift in Sources */,
 				32B4267D267AB30F00BE63D4 /* RegisterView.swift in Sources */,
+				32962101267B681F0026C7C4 /* PersonController.swift in Sources */,
 				32B42641267A9EE400BE63D4 /* CompetitionAppUITests.swift in Sources */,
 				32B42662267AA6C700BE63D4 /* Model.xcdatamodeld in Sources */,
 				32B42676267AACC800BE63D4 /* WelcomeView.swift in Sources */,

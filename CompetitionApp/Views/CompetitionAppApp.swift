@@ -11,7 +11,7 @@ import SwiftUI
 struct CompetitionAppApp: App {
     
     // store the persistence controller
-    let persistenceController = PersistenceController.preview
+    let persistenceController = PersistenceController.shared
     // state of scene
     @Environment(\.scenePhase) var scenePhase
     

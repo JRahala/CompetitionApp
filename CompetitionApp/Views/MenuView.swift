@@ -10,9 +10,9 @@ import SwiftUI
 struct MenuView: View {
     var body: some View {
         Text("Menu View")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
 }

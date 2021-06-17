@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct RegisterView: View {
+    
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var repeatPassword: String = ""
+    
     var body: some View {
-        Text("Register View")
+        VStack{
+            Text("Register View")
+            TextField("Username", text: $username)
+            SecureField("Password", text: $password)
+            SecureField("Repeat password", text: $repeatPassword)
+            Button(
+                action: {
+                    //registerUser()
+                },
+                label: {
+                    Text("Register User")
+                })
+        }
+        .padding()
     }
 }
 
