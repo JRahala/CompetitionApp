@@ -49,4 +49,24 @@ class PersonControllerTests: XCTestCase {
         XCTAssertThrowsError(try registerUser(username: "username1", password: "password9", repeatPassword: "password9")) // username is already taken
     }
 
+    
+    func testLoginValid(){
+        XCTAssertEqual(try User(username: "username1", password: "password1"), true)
+        XCTAssertEqual(try User(username: "username2", password: "password2"), true)
+        XCTAssertEqual(try User(username: "username3", password: "password3"), true)
+    }
+    
+    func testLoginErroneous(){
+        XCTAssertThrowsError(try User(username: "username4", password: "simple")) // password too simple (must contain a number)
+        XCTAssertThrowsError(try User(username: "username5", password: "1234abcd")) // passwords do not match
+        XCTAssertThrowsError(try User(username: "username123456789", password: "password6")) // username is too long
+        
+    }
+    
+    func testLoginBoundary(){
+        XCTAssertThrowsError(try User(username: "a", password: "password7")) // username is too short
+        XCTAssertThrowsError(try User(username: "username8", password: "username8")) // password matches username
+        XCTAssertThrowsError(try User(username: "username1", password: "password9")) // username is already taken
+    }
+
 }
