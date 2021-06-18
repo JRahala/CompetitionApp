@@ -77,6 +77,7 @@ struct RegisterView: View {
         let person = Person(context: managedObjectContext)
         person.username = self.username
         person.password = self.password
+        person.wordlist = ""
         
         do {
             try managedObjectContext.save()
