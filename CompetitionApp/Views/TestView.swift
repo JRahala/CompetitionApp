@@ -8,37 +8,37 @@
 import SwiftUI
 
 struct TestView: View {
-    /*
     
-    @State var words: [thing]
     @State var currentUser: Person
-    @State var count: Int
-
-    init(currentUser: Person){
+    @State var testWords: [WordResponse] = []
+    var difficultyLevel: Int64 {
+        currentUser.experience / 100 + 3
+    }
         
-        self.words = [thing]()
-        self.currentUser = currentUser
-        self.count = 10
-        
-        for i in 0..<10{
-            requestWord(callback: {data in
-                words.append(data)
+    var body: some View{
+        NavigationView{
+            VStack{
+                if (testWords).count == 4{
+                    VStack{
+                        ForEach(0..<4, id: \.self){ index in
+                            Text(testWords[index].word!)
+                        }
+                    }
+                }
+            }
+            .onAppear(perform: {
+                testWords = []
+                for i in 0..<2{
+                    (requestWord(level: difficultyLevel, callback: {data in
+                        print("words retrieved", data.word)
+                        requestDefinition(word: data.word, callback: {def in
+                            testWords.append(def)
+                            //print("definition retrieved", testWords)
+                        })
+                    }))
+                }
             })
         }
-    }
-    
-    
-    var body: some View {
-        VStack{
-            VStack{
-                Text(self.words[0].word)
-            }
-        }
-    }
-     */
-    
-    var body: some View{
-        Text("Test view")
     }
     
 }

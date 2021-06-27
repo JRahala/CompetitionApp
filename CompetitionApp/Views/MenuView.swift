@@ -30,7 +30,7 @@ struct MenuView: View {
             NavigationLink(destination: SearchView(currentUser: currentUser),
                            label: {Text("Search for definitions")})
             
-            NavigationLink(destination: TestView(),//currentUser: currentUser),
+            NavigationLink(destination: TestView(currentUser: currentUser),
                            label: {Text("Take a test")})
             
             NavigationLink(destination: ProfileView(currentUser: currentUser),

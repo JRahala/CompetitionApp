@@ -111,20 +111,20 @@ struct Definition: Codable, Hashable{
 }
 
 
-func requestWord(callback: @escaping (thing) -> ()){
-    let url_string = URL(string: "https://competitionServer.jasamritrahala.repl.co/get_word/3")!
+func requestWord(level: Int64, callback: @escaping (Word) -> ()){
+    let url_string = URL(string: "https://competitionServer.jasamritrahala.repl.co/get_word/\(level)")!
     let task = URLSession.shared.dataTask(with: url_string, completionHandler: { (data: Data?, url_response: URLResponse?, error: Error?) in
         // check that we actually have any data
         guard let data = data, error == nil else{
             print("Something went wrong!")
             return
         }
-        var result: thing?
+        var result: Word?
         do{
-            result = try JSONDecoder().decode(thing.self, from: data)
+            result = try JSONDecoder().decode(Word.self, from: data)
         }
         catch{
-            print("Could not convert response to joke")
+            print("Could not convert response to word")
         }
         guard let json = result else{
             return
@@ -137,6 +137,6 @@ func requestWord(callback: @escaping (thing) -> ()){
     task.resume()
 }
 
-struct thing: Codable{
+struct Word: Codable{
     var word: String
 }

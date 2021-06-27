@@ -19,10 +19,9 @@ struct SearchView: View {
             
             TextField("Search query...", text: $searchQuery)
             
-            Button(action: {requestDefinition(word: searchQuery, callback: { data in
-                print(data.word ?? "")
+            Button(action: {requestDefinition(word: searchQuery, callback: {data in
                 response = data
-            }) }, label: {Text("get data")})
+            })}, label: {Text("Search word")})
             
             if let response = response{
                 ForEach(response.meanings ?? [], id: \.self){ meaning in
@@ -36,7 +35,7 @@ struct SearchView: View {
             }
             // end of response
             
-        }
+        }.padding(10)
         
     }
 }

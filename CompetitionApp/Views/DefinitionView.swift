@@ -18,11 +18,6 @@ struct DefinitionView: View {
         
         VStack{
             
-            Button(action: {requestDefinition(word: searchQuery, callback: { data in
-                print(data.word ?? "")
-                response = data
-            }) }, label: {Text("get data")})
-            
             if let response = response{
                 ForEach(response.meanings ?? [], id: \.self){ meaning in
                     Text(meaning.partOfSpeech!)
@@ -35,7 +30,10 @@ struct DefinitionView: View {
             }
             // end of response
             
-        }
+        }.onAppear(perform: {requestDefinition(word: searchQuery, callback: { data in
+            print(data.word ?? "")
+            response = data
+        })})
     }
         
 }
