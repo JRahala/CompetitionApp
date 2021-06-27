@@ -11,6 +11,7 @@ struct WelcomeView: View {
     var body: some View {
         NavigationView{
             VStack{
+            Text("Vocabulary Builder")
             NavigationLink(
                 destination: RegisterView(),
                 label: {
@@ -22,7 +23,7 @@ struct WelcomeView: View {
                     Text("Login")
                 })
             }
-        }
+        }.padding()
     }
 }
 

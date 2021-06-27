@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct TestView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    /*
+    
+    @State var words: [thing]
+    @State var currentUser: Person
+    @State var count: Int
+
+    init(currentUser: Person){
+        
+        self.words = [thing]()
+        self.currentUser = currentUser
+        self.count = 10
+        
+        for i in 0..<10{
+            requestWord(callback: {data in
+                words.append(data)
+            })
+        }
     }
+    
+    
+    var body: some View {
+        VStack{
+            VStack{
+                Text(self.words[0].word)
+            }
+        }
+    }
+     */
+    
+    var body: some View{
+        Text("Test view")
+    }
+    
 }
 
-struct TestView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
-    }
-}

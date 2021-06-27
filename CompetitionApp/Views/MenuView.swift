@@ -5,6 +5,7 @@
 //  Created by Rahala, Jasamrit (Coll) on 16/06/2021.
 //
 
+
 import SwiftUI
 
 struct MenuView: View {
@@ -19,14 +20,21 @@ struct MenuView: View {
             Text("Username: " + currentUser.username!)
             TextField("Search field...", text: $searchQuery)
             
+            Text("Load some random words that they just learnt")
+            Text("Load some quote of the day")
+            Text("videos about learning spellings")
+            
             NavigationLink(destination: WordsView(currentUser: currentUser),
                            label: {Text("View words")})
             
-            NavigationLink(destination: TestView(),
+            NavigationLink(destination: SearchView(currentUser: currentUser),
+                           label: {Text("Search for definitions")})
+            
+            NavigationLink(destination: TestView(),//currentUser: currentUser),
                            label: {Text("Take a test")})
             
-            NavigationLink(destination: ExploreView(),
-                           label: {Text("Explore new words")})
+            NavigationLink(destination: ProfileView(currentUser: currentUser),
+                           label: {Text("View profile")})
             
             Text("Menu View")
             
@@ -39,3 +47,4 @@ struct MenuView: View {
     }
     
 }
+

@@ -26,6 +26,8 @@ struct RegisterView: View {
             TextField("Username", text: $username)
             SecureField("Password", text: $password)
             SecureField("Repeat password", text: $repeatPassword)
+
+            
             
             Button(action: {
                 result = registerUser()
@@ -77,7 +79,8 @@ struct RegisterView: View {
         let person = Person(context: managedObjectContext)
         person.username = self.username
         person.password = self.password
-        person.wordlist = ""
+        person.wordlist = "empty"
+        person.experience = 0
         
         do {
             try managedObjectContext.save()

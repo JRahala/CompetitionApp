@@ -7,10 +7,11 @@
 
 import Foundation
 
-let api_url: String = "https://api.dictionaryapi.dev/api/v2/entries/en_GB/"
-
-func requestDefinition(from url: String, callback: @escaping (WordResponse) -> ()){
-    let url_string = URL(string: url)!
+func requestDefinition(word: String, callback: @escaping (WordResponse) -> ()){
+    if word.contains(" "){
+        return
+    }
+    let url_string = URL(string: "https://competitionServer.jasamritrahala.repl.co/get_definition/\(word)")!
     let task = URLSession.shared.dataTask(with: url_string, completionHandler: { (data: Data?, url_response: URLResponse?, error: Error?) in
         // check that we actually have any data
         guard let data = data, error == nil else{
@@ -18,16 +19,17 @@ func requestDefinition(from url: String, callback: @escaping (WordResponse) -> (
             return
         }
         var result: WordResponse?
+        
         do{
             result = try JSONDecoder().decode(WordResponse.self, from: data)
         }
         catch{
+            print(error)
             print("Could not convert response to definition")
         }
         guard let json = result else{
             return
         }
-        
         DispatchQueue.main.async {
             callback(json)
         }
@@ -93,16 +95,48 @@ func requestDefinition(from url: String, callback: @escaping (WordResponse) -> (
   ]
  */
 
-struct WordResponse: Codable{
-    var meanings: [Meaning]
+struct WordResponse: Codable, Hashable{
+    var word: String? = nil
+    var meanings: [Meaning]? = nil
 }
 
-struct Meaning: Codable{
-    var partOfSpeech: String
-    var definitions: Definition
+struct Meaning: Codable, Hashable{
+    var partOfSpeech: String? = nil
+    var definitions: [Definition]? = nil
 }
 
-struct Definition: Codable{
-    var definition: String
-    var example: String
+struct Definition: Codable, Hashable{
+    var definition: String? = nil
+    var example: String? = nil
+}
+
+
+func requestWord(callback: @escaping (thing) -> ()){
+    let url_string = URL(string: "https://competitionServer.jasamritrahala.repl.co/get_word/3")!
+    let task = URLSession.shared.dataTask(with: url_string, completionHandler: { (data: Data?, url_response: URLResponse?, error: Error?) in
+        // check that we actually have any data
+        guard let data = data, error == nil else{
+            print("Something went wrong!")
+            return
+        }
+        var result: thing?
+        do{
+            result = try JSONDecoder().decode(thing.self, from: data)
+        }
+        catch{
+            print("Could not convert response to joke")
+        }
+        guard let json = result else{
+            return
+        }
+        
+        DispatchQueue.main.async {
+            callback(json)
+        }
+    })
+    task.resume()
+}
+
+struct thing: Codable{
+    var word: String
 }

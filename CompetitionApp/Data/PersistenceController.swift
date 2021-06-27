@@ -21,6 +21,8 @@ struct PersistenceController{
             let person = Person(context: controller.container.viewContext)
             person.username = "username #\(i)"
             person.password = "password #\(i)"
+            person.experience = 0
+            person.wordlist = "potential"
         }
         return controller
     }()
@@ -39,6 +41,14 @@ struct PersistenceController{
                 fatalError("Error: \(error.localizedDescription)")
             }
         }
+        
+        // initialise with fake data by default
+        let person = Person(context: container.viewContext)
+        person.username = "User"
+        person.password = "pass"
+        person.experience = 0
+        person.wordlist = "potential"
+        
     }
     
     // save changes made to the context
