@@ -16,28 +16,50 @@ struct TestView: View {
     }
     @State var questionNumber: Int = 0
     @State var correct: WordResponse? = nil
+    @State var alertTitle: String = ""
+    @State var alertMessage: String = ""
+    @State var showingAlert: Bool = false
+    @State var score: Int = 0
         
     var body: some View{
         NavigationView{
             VStack{
-                if (testWords).count == 4 && questionNumber < 2{
-                    questionNumber += 1
-                    Text("Definition")
-                    let correct = testWords.randomElement()!
-                    Text(correct.meanings?[0].definitions?[0].definition ?? "")
+                if (testWords).count == 4 && questionNumber < 3{
                     
-                    VStack{
-                        ForEach(0..<4, id: \.self){ index in
-                            Button(action: {
-                                wordPressed(choice: testWords[index])
-                            }, label: {Text(testWords[index].word!)})
-                            
+                    if showingAlert{
+                        Text(alertTitle)
+                        Text(alertMessage)
+                        Button(action: {
+                            showingAlert = false
+                            questionNumber += 1
+                        }, label: {
+                            Text("continue")
+                        })
+                    
+                    }
+                    
+                    else{
+                    
+                        Text("Definition")
+                        let correct = testWords.randomElement()!
+                        Text(correct.meanings?[0].definitions?[0].definition ?? "")
+                        
+                        VStack{
+                            ForEach(0..<4, id: \.self){ index in
+                                Button(action: {
+                                    (alertTitle, alertMessage) = wordPressed(choice: testWords[index])
+                                }, label: {Text(testWords[index].word!)})
+                                
+                            }
                         }
                     }
+                    
+                    
                 }
             }
             .onAppear(perform: {
                 testWords = []
+                showingAlert = false
                 for _ in 0..<2{
                     (requestWord(level: difficultyLevel, callback: {data in
                         print("words retrieved", data.word)
@@ -49,10 +71,10 @@ struct TestView: View {
                 }
             })
         }
+
     }
     
-    func wordPressed(choice: WordResponse){
-        var alertTitle = ""
+    func wordPressed(choice: WordResponse) -> (String, String){
         if choice == correct{
             alertTitle = "Well done"
         }
@@ -60,10 +82,9 @@ struct TestView: View {
             alertTitle = "Unlucky"
         }
         
-        let alertMessage = "The correct answer was \(correct?.word!)"
-        Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("continue")))
+        alertMessage = "The correct answer was \(correct?.word!)"
         testWords = []
-        for _ in 0..<2{
+        for _ in 0..<4{
             (requestWord(level: difficultyLevel, callback: {data in
                 print("words retrieved", data.word)
                 requestDefinition(word: data.word, callback: {def in
@@ -72,6 +93,9 @@ struct TestView: View {
                 })
             }))
         }
+        print("Request made!")
+        showingAlert = true
+        return (alertTitle, alertMessage)
     }
     
 }
