@@ -12,7 +12,7 @@ class LastLearnt: ObservableObject{
     /* GENERIC STACK based data structure to retrieve the most recent words learnt by the user */
     
     // constructor method
-    var root: Node?
+    @Published var root: Node?
     init(){
         self.root = nil
     }

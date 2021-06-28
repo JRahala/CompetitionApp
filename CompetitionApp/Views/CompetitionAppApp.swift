@@ -12,6 +12,10 @@ struct CompetitionAppApp: App {
     
     // store the persistence controller
     let persistenceController = PersistenceController.preview
+    
+    // latest words learnt by the user
+    let learningStack = LastLearnt()
+    
     // state of scene
     @Environment(\.scenePhase) var scenePhase
     
@@ -21,6 +25,7 @@ struct CompetitionAppApp: App {
             WelcomeView()
                 // reference the controller via environment
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(learningStack)
         }
         // save changes whever the scene changes
         .onChange(of: scenePhase){ _ in
