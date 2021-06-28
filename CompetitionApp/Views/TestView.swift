@@ -20,11 +20,11 @@ struct TestView: View {
     @State var alertMessage: String = ""
     @State var showingAlert: Bool = false
     @State var score: Int = 0
-        
+    
     var body: some View{
         NavigationView{
             VStack{
-                if (testWords).count == 4 && questionNumber < 3{
+                if (testWords).count == 4 && questionNumber < 10{
                     
                     if showingAlert{
                         Text(alertTitle)
@@ -53,9 +53,8 @@ struct TestView: View {
                             }
                         }
                     }
-                    
-                    
                 }
+                
             }
             .onAppear(perform: {
                 testWords = []
@@ -66,6 +65,7 @@ struct TestView: View {
                         requestDefinition(word: data.word, callback: {def in
                             testWords.append(def)
                             //print("definition retrieved", testWords)
+                            currentUser.wordlist = currentUser.wordlist! + ", " + data.word
                         })
                     }))
                 }
@@ -75,8 +75,10 @@ struct TestView: View {
     }
     
     func wordPressed(choice: WordResponse) -> (String, String){
+        
         if choice == correct{
             alertTitle = "Well done"
+            score += 1
         }
         else{
             alertTitle = "Unlucky"

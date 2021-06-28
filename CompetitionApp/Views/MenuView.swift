@@ -39,6 +39,9 @@ struct MenuView: View {
             Text("Menu View")
             
         }
+        
+        // add latest words stack
+        // add sorting algorithm
             
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("")
