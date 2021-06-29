@@ -51,3 +51,39 @@ class Node{
     }
 }
 
+// merge sort the array out of place
+func mergeSort(array: [WordResponse]) -> [WordResponse]{
+    
+    if array.count == 1{ return array }
+    let left = mergeSort(array: Array(array[0..<array.count / 2]))
+    let right = mergeSort(array: Array(array[array.count / 2 ..< array.count]))
+    
+    var i = 0
+    var j = 0
+    
+    var newArray = [WordResponse]()
+    
+    while i < left.count && j < right.count{
+        if left[i].word! < right[j].word!{
+            i += 1
+            newArray.append(left[i])
+        }
+        else{
+            j += 1
+            newArray.append(right[j])
+        }
+    }
+    
+    while i < left.count{
+        newArray.append(left[i])
+        i += 1
+    }
+    
+    while j < right.count{
+        newArray.append(right[j])
+        j += 1
+    }
+    
+    return newArray
+}
+

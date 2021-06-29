@@ -20,19 +20,36 @@ struct LoginView: View {
     var body: some View {
         VStack{
             
-            Text("Login View")
+            Text("Login")
+                .font(.custom("Charter", size: 30))
             
             TextField("Username", text: $username)
+                .font(.custom("Charter", size: 20))
+            
             SecureField("Password", text: $password)
+                .font(.custom("Charter", size: 20))
+            
+            Spacer()
+                .frame(height: 30)
+            
             
             Button(action: {
                 result = loginUser()
             }, label: {
-                Text("Login")
+                ZStack{
+                    Rectangle()
+                        .fill(Color.secondary)
+                        .frame(width: 200, height: 50)
+                    
+                    Text("Login")
+                        .font(.custom("Charter", size: 30))
+                        .foregroundColor(.white)
+                }
             })
             
             if result != "" {
                 Text("Result: \(result)")
+                    .font(.custom("Charter", size: 20))
                 
             }
             
@@ -40,7 +57,15 @@ struct LoginView: View {
                 NavigationLink(destination: {
                     MenuView(currentUser: currentUser!)
                 }(), label: {
-                    Text("Continue to menu screen")
+                    ZStack{
+                        Rectangle()
+                            .fill(Color.black)
+                            .frame(width: 300, height: 50)
+                        
+                        Text("Continue to menu screen")
+                            .font(.custom("Charter", size: 20))
+                            .foregroundColor(.white)
+                    }
                 })
             }
         }

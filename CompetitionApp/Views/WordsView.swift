@@ -17,9 +17,11 @@ struct WordsView: View {
     
     var body: some View {
         VStack{
-            ForEach(currentUser.wordlist!.components(separatedBy: ", "), id: \.self){ word in
-                VStack{
-                    DefinitionView(currentUser: currentUser, searchQuery: word, response: nil)
+            ScrollView{
+                ForEach(currentUser.wordlist!.components(separatedBy: ", "), id: \.self){ word in
+                    VStack{
+                        DefinitionView(currentUser: currentUser, searchQuery: word, response: nil)
+                    }
                 }
             }
         }

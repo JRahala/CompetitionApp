@@ -12,15 +12,58 @@ struct WelcomeView: View {
         NavigationView{
             VStack{
             Text("Vocabulary Builder")
+                .font(.custom("Charter", size: 50))
+                
+            Image("BooksImage")
+                .resizable()
+                .scaledToFit()
+                
+            Spacer()
+                .frame(height: 20)
+                
+            Divider()
+                .frame(maxWidth: 200)
+                
+            
+            Text("Vocabulary is a matter of word-building as well as word-using ~ David Crystal")
+                .font(.custom("Charter", size: 15))
+                .italic()
+            
+            Divider()
+                .frame(maxWidth: 200)
+                
+            Spacer()
+                .frame(height: 40)
+                
             NavigationLink(
                 destination: RegisterView(),
                 label: {
-                    Text("Register")
+                    ZStack{
+                        Rectangle()
+                            .fill(Color.secondary)
+                            .frame(width: 200, height: 50)
+                        
+                        Text("Register")
+                            .font(.custom("Charter", size: 30))
+                            .foregroundColor(.white)
+                    }
                 })
+                
+            Spacer()
+                .frame(height: 20)
+                
             NavigationLink(
                 destination: LoginView(),
                 label: {
-                    Text("Login")
+                    ZStack{
+                        Rectangle()
+                            .fill(Color.secondary)
+                            .frame(width: 200, height: 50)
+                        
+                        Text("Login")
+                            .font(.custom("Charter", size: 30))
+                            .foregroundColor(.white)
+                    }
                 })
             }
         }.padding()
