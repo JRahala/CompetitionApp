@@ -18,15 +18,38 @@ struct DefinitionView: View {
         
         VStack{
             
-            if let response = response{
-                ForEach(response.meanings ?? [], id: \.self){ meaning in
-                    Text(meaning.partOfSpeech!)
-                    ForEach(meaning.definitions ?? [], id: \.self){ definition in
-                        Text("-----")
-                        Text(definition.definition ?? "")
-                        Text(definition.example ?? "")
-                    }
+            if let response = response {
+                
+                ZStack{
+                    
+                    Rectangle()
+                        .fill(Color("lightgrey"))
+                        .shadow(radius: 10)
+                    
+                    VStack(alignment: .leading){
+                        ScrollView{
+                            
+                        Text(response.word!)
+                            .font(.custom("Charter", size: 25))
+                            
+                        ForEach(response.meanings ?? [], id: \.self){ meaning in
+                            Text(meaning.partOfSpeech!)
+                                .font(.custom("Charter", size: 15))
+                                .italic()
+                            ForEach(meaning.definitions ?? [], id: \.self){ definition in
+                                Text(definition.definition ?? "")
+                                    .font(.custom("Charter", size: 20))
+                                Text(definition.example ?? "")
+                                    .font(.custom("Charter", size: 20))
+                                    .fontWeight(.light)
+                                Divider()
+                            }
+                        }
+                        }
+                    }.padding()
+                    
                 }
+                
             }
             // end of response
             

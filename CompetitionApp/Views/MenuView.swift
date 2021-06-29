@@ -11,32 +11,84 @@ import SwiftUI
 struct MenuView: View {
     
     @State var currentUser: Person
-    @State var searchQuery: String = ""
     
     var body: some View {
         
         VStack{
             
-            Text("Username: " + currentUser.username!)
-            TextField("Search field...", text: $searchQuery)
+            Text("Welcome back, " + currentUser.username!)
+                .font(.custom("Charter", size: 50))
             
-            Text("Load some random words that they just learnt")
-            Text("Load some quote of the day")
-            Text("videos about learning spellings")
+            Spacer()
+                .frame(height: 50)
             
             NavigationLink(destination: WordsView(currentUser: currentUser),
-                           label: {Text("View words")})
+                           label: {
+                            ZStack {
+                                Image("WordsView")
+                                    .resizable()
+                                    .frame(minWidth: 400)
+                                    .brightness(-0.2)
+                                    .blur(radius: 0.2)
+                                
+                                Text("View Library")
+                                    .font(.custom("Charter", size: 40))
+                                    .fontWeight(.bold)
+                                    
+                                    .foregroundColor(.white)
+                            }
+                           })
             
             NavigationLink(destination: SearchView(currentUser: currentUser),
-                           label: {Text("Search for definitions")})
+                           label: {
+                            ZStack {
+                                Image("SearchView")
+                                    .resizable()
+                                    .frame(minWidth: 400)
+                                    .brightness(-0.2)
+                                    .blur(radius: 0.2)
+                                
+                                Text("Search Definitions")
+                                    .font(.custom("Charter", size: 40))
+                                    .fontWeight(.bold)
+                                    
+                                    .foregroundColor(.white)
+                            }
+                           })
             
             NavigationLink(destination: TestView(currentUser: currentUser),
-                           label: {Text("Take a test")})
+                           label: {
+                            ZStack {
+                                Image("TestView")
+                                    .resizable()
+                                    .frame(minWidth: 400)
+                                    .brightness(-0.2)
+                                    .blur(radius: 0.2)
+                                
+                                Text("Test your knowledge")
+                                    .font(.custom("Charter", size: 40))
+                                    .fontWeight(.bold)
+                                    
+                                    .foregroundColor(.white)
+                            }
+                           })
             
             NavigationLink(destination: ProfileView(currentUser: currentUser),
-                           label: {Text("View profile")})
-            
-            Text("Menu View")
+                           label: {
+                            ZStack {
+                                Image("ProfileView")
+                                    .resizable()
+                                    .frame(minWidth: 400)
+                                    .brightness(-0.2)
+                                    .blur(radius: 0.2)
+                                
+                                Text("Recent Words")
+                                    .font(.custom("Charter", size: 40))
+                                    .fontWeight(.bold)
+                                    
+                                    .foregroundColor(.white)
+                            }
+                           })
             
         }
         

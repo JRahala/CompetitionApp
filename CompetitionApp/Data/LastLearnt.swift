@@ -65,12 +65,12 @@ func mergeSort(array: [WordResponse]) -> [WordResponse]{
     
     while i < left.count && j < right.count{
         if left[i].word! < right[j].word!{
-            i += 1
             newArray.append(left[i])
+            i += 1
         }
         else{
-            j += 1
             newArray.append(right[j])
+            j += 1
         }
     }
     

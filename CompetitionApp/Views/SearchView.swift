@@ -18,22 +18,59 @@ struct SearchView: View {
         VStack{
             
             TextField("Search query...", text: $searchQuery)
+                .font(.custom("Charter", size: 20))
+            
+            Spacer()
+                .frame(height: 20)
+            
+            if let response = response{
+                
+                
+                ZStack{
+                    
+                    Rectangle()
+                        .fill(Color("lightgrey"))
+                        .shadow(radius: 10)
+                    
+                    VStack(alignment: .leading){
+                        ScrollView{
+                        ForEach(response.meanings ?? [], id: \.self){ meaning in
+                            Text(meaning.partOfSpeech!)
+                                .font(.custom("Charter", size: 15))
+                                .italic()
+                            ForEach(meaning.definitions ?? [], id: \.self){ definition in
+                                Text(definition.definition ?? "")
+                                    .font(.custom("Charter", size: 20))
+                                Text(definition.example ?? "")
+                                    .font(.custom("Charter", size: 20))
+                                Divider()
+                            }
+                        }
+                        }
+                    }.padding()
+                    
+                }
+                
+                Spacer()
+                    .frame(height: 20)
+            
+            }
+            // end of response
             
             Button(action: {requestDefinition(word: searchQuery, callback: {data in
                 response = data
-            })}, label: {Text("Search word")})
-            
-            if let response = response{
-                ForEach(response.meanings ?? [], id: \.self){ meaning in
-                    Text(meaning.partOfSpeech!)
-                    ForEach(meaning.definitions ?? [], id: \.self){ definition in
-                        Text("-----")
-                        Text(definition.definition ?? "")
-                        Text(definition.example ?? "")
-                    }
+            })}, label: {
+                ZStack{
+                    Rectangle()
+                        .fill(Color.secondary)
+                        .frame(width: 200, height: 50)
+                    
+                    Text("Search word")
+                        .font(.custom("Charter", size: 30))
+                        .foregroundColor(.white)
                 }
-            }
-            // end of response
+            })
+            
             
         }.padding(10)
         

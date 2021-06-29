@@ -23,7 +23,20 @@ struct ProfileView: View {
                 ForEach(loadedWords, id: \.self){ word in
                     DefinitionView(currentUser: currentUser, searchQuery: word.word!, response: nil)
                 }
-                Button(action: loadWords, label: {Text("Load \(loadNumber) more words ... ")})
+                Button(action: loadWords, label: {
+                        ZStack{
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(width: 300, height: 50)
+                            
+                            Spacer()
+                                .frame(height: 20)
+                            
+                            Text("Load 10 more words")
+                                .font(.custom("Charter", size: 20))
+                                .foregroundColor(.white)
+                        }
+                })
             }
         }
     }
@@ -34,5 +47,6 @@ struct ProfileView: View {
             loadedWords.append(learningStack.pop() as! WordResponse)
             i += 1
         }
+        loadedWords = mergeSort(array: loadedWords)
     }
 }

@@ -44,8 +44,8 @@ struct PersistenceController{
         
         // initialise with fake data by default
         let person = Person(context: container.viewContext)
-        person.username = "User"
-        person.password = "pass"
+        person.username = "Jasamrit"
+        person.password = "Rahala123"
         person.experience = 0
         person.wordlist = "potential"
         

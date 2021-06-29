@@ -30,27 +30,62 @@ struct TestView: View {
                     
                     if showingAlert{
                         Text(alertTitle)
+                            .font(.custom("Charter", size: 30))
+                        
                         Text(alertMessage)
+                            .font(.custom("Charter", size: 20))
+                        
                         Button(action: {
                             showingAlert = false
                             questionNumber += 1
                         }, label: {
-                            Text("continue")
+                            ZStack{
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(width: 300, height: 50)
+                                
+                                Text("continue")
+                                    .font(.custom("Charter", size: 20))
+                                    .foregroundColor(.white)
+                            }
                         })
                     
                     }
                     
                     else{
-                    
-                        Text("Definition")
-                        let correct = testWords.randomElement()!
-                        Text(correct.meanings?[0].definitions?[0].definition ?? "")
+                        ZStack{
+                            Rectangle()
+                                .fill(Color("lightgrey"))
+                            VStack{
+                                Text("Definition:")
+                                    .font(.custom("Charter", size: 40))
+                                    .fontWeight(.heavy)
+                                
+                                let correct = testWords.randomElement()!
+                                Text(correct.meanings?[0].definitions?[0].definition ?? "")
+                                    .font(.custom("Charter", size: 30))
+                                    .italic()
+                            }
+                        }
+                        
+                        Spacer()
+                            .frame(height: 50)
                         
                         VStack{
                             ForEach(0..<4, id: \.self){ index in
                                 Button(action: {
                                     (alertTitle, alertMessage) = wordPressed(choice: testWords[index])
-                                }, label: {Text(testWords[index].word!)})
+                                }, label: {
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(Color.black)
+                                            .frame(width: 300, height: 50)
+                                        
+                                        Text(testWords[index].word!)
+                                            .font(.custom("Charter", size: 20))
+                                            .foregroundColor(.white)
+                                    }
+                                })
                                 
                             }
                         }
