@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TestView: View {
     
+    @EnvironmentObject var learningStack: LastLearnt
+    
     @State var currentUser: Person
     @State var testWords: [WordResponse] = []
     var difficultyLevel: Int64 {
@@ -66,6 +68,7 @@ struct TestView: View {
                             testWords.append(def)
                             //print("definition retrieved", testWords)
                             currentUser.wordlist = currentUser.wordlist! + ", " + data.word
+                            learningStack.push(value: def)
                         })
                     }))
                 }
