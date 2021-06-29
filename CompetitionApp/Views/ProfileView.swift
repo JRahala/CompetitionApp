@@ -29,6 +29,7 @@ struct ProfileView: View {
         var i = loadNumber
         while i > 0 && learningStack.isEmpty() != true{
             loadedWords.append(learningStack.pop() as! WordResponse)
+            i += 1
         }
     }
 }
